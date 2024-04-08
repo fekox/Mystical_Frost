@@ -10,9 +10,13 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 3.0f;
 
+    private void OnValidate()
+    {
+        rigidBody ??= GetComponent<Rigidbody>();
+    }
+
     private void Start()
     {
-        rigidBody = GetComponent<Rigidbody>();
         movementDirection = new Vector2(0.0f, 0.0f);
     }
 
