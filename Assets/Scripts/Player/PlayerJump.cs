@@ -2,18 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerJump : MonoBehaviour
 {
-    private const int maxFloorDistance = 10;
-
     [Header("Setup")]
 
     [SerializeField] private Rigidbody rigidBody;
 
     [SerializeField] private Transform feetPivot;
+
+    private const int maxFloorDistance = 10;
 
 
     [Header("Movement")]
@@ -26,40 +27,14 @@ public class PlayerJump : MonoBehaviour
 
     [SerializeField] private float coyoteTime = 0.2f;
 
-    [SerializeField] private float maxJumpAnimation = 0.5f;
-
-    private float maxJumpForce;
-    private float normalJumpForce;
-
     private Coroutine _jumpCoroutine;
-
-    private float jumpAnimationTimer;
-
-    [Header("References")]
-
-    [SerializeField] private PlayerMovement playerMovement;
 
     private void OnValidate()
     {
         rigidBody ??= GetComponent<Rigidbody>();
     }
 
-    void Start()
-    {
-        int auxNumber = 3;
-
-        normalJumpForce = jumpForce;
-        maxJumpForce = jumpForce * auxNumber;
-
-        if (!rigidBody)
-        {
-            enabled = false;
-        }
-
-        jumpAnimationTimer = maxJumpAnimation;
-    }
-
-    public void JumpLogic()
+    public void JumpLogic() 
     {
         if (_jumpCoroutine != null)
         {
@@ -109,12 +84,21 @@ public class PlayerJump : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Returns a raycast that is at the position of the player's feet to detect 
+    /// if the player can jump again or not
+    /// </summary>
+    /// <param name="currentFeetPosition"></param>
+    /// <returns></returns>
     private bool CanJumpInPosition(Vector3 currentFeetPosition)
     {
         return Physics.Raycast(currentFeetPosition, Vector3.down, out var hit, maxFloorDistance)
                && hit.distance <= minJumpDistance;
     }
 
+    /// <summary>
+    /// Draw the raycast that is at the player's feet.
+    /// </summary>
     private void OnDrawGizmosSelected()
     {
         if (!feetPivot)
