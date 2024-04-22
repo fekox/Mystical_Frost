@@ -16,7 +16,6 @@ public class PlayerJump : MonoBehaviour
 
     private const int maxFloorDistance = 10;
 
-
     [Header("Movement")]
 
     [SerializeField] private float jumpForce = 6f;
