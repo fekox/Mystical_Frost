@@ -21,9 +21,9 @@ public class PlayerJump : MonoBehaviour
 
     [SerializeField] private float jumpForce = 6f;
 
-    [SerializeField] private float minJumpDistance = 0.25f;
+    [SerializeField] private float minJumpDistance = 0.2f;
 
-    [SerializeField] private float jumpBufferTime = 0.25f;
+    [SerializeField] private float jumpBufferTime = 0.2f;
 
     [SerializeField] private float coyoteTime = 0.2f;
 
