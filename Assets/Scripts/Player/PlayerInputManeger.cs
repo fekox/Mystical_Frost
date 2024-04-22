@@ -8,8 +8,6 @@ public class PlayerInputManeger : MonoBehaviour
 
     [SerializeField] private PlayerJump playerJump;
 
-    [SerializeField] private PlayerShoot playerShoot;
-
     public void OnMove(InputValue value)
     {
         playerMovement.Move(value);
@@ -18,10 +16,5 @@ public class PlayerInputManeger : MonoBehaviour
     public void OnJump() 
     {
         playerJump.JumpLogic();
-    }
-
-    public void OnShoot() 
-    {
-        playerShoot.ShootLogic();
     }
 }
