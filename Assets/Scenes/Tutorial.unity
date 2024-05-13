@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1549815749}
-  playerJump: {fileID: 1549815750}
+  flipPlayer: {fileID: 1549815752}
 --- !u!4 &129791812
 Transform:
   m_ObjectHideFlags: 0
@@ -695,6 +695,7 @@ GameObject:
   - component: {fileID: 1549815750}
   - component: {fileID: 1549815748}
   - component: {fileID: 1549815751}
+  - component: {fileID: 1549815752}
   - component: {fileID: 1549815747}
   m_Layer: 0
   m_Name: Player
@@ -745,7 +746,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 88
   m_CollisionDetection: 0
 --- !u!65 &1549815744
 BoxCollider:
@@ -875,6 +876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1ecfd6432416840ab52be43975100b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementDirection: 0
   speed: 3
 --- !u!114 &1549815750
 MonoBehaviour:
@@ -908,7 +910,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 117607590}
   bulletPrefab: {fileID: 4302683987896447326, guid: 566e7078a79427a4d94b9284c6ccab26, type: 3}
-  maxBulletScale: 5
+--- !u!114 &1549815752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549815741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7724e37b9f2edc94e8d8ab1f16bfb686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 1549815749}
+  shootPivot: {fileID: 117607589}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

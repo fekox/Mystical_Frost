@@ -6,10 +6,12 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private PlayerMovement playerMovement;
 
-    [SerializeField] private PlayerJump playerJump;
+    [SerializeField] private FlipEntity flipPlayer;
 
     private void FixedUpdate()
     {
         playerMovement.MoveLogic();
+
+        flipPlayer.FlipLogic();
     }
 }
